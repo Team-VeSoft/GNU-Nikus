@@ -47,6 +47,8 @@ void _start(struct MemoryRegion* mem_regions, size_t mem_region_count) {
         putc(message[i]);
     }
 
-    // Выход из ядра и передача управления загрузчику Limine
-    limine_reboot();
+    // Просто завершаем выполнение ядра
+    while (true) {
+        asm volatile ("hlt");
+    }
 }
