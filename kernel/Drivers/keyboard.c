@@ -2,13 +2,23 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include "keyboard.h"
 
 // Порт для чтения данных из порта клавиатуры
 #define KEYBOARD_DATA_PORT 0x60
 
+// Переменная для хранения состояния драйвера клавиатуры
+static bool keyboard_initialized = false;
+
 // Функция для инициализации драйвера клавиатуры
 void init_keyboard() {
-    // No OS?
+    // Выполняем инициализацию только один раз
+    if (!keyboard_initialized) {
+        // Здесь выполняется необходимая инициализация
+
+        // Устанавливаем флаг инициализации
+        keyboard_initialized = true;
+    }
 }
 
 // Функция для чтения символа с клавиатуры
