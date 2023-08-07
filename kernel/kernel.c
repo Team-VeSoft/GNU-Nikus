@@ -4,7 +4,8 @@
 #include <stdbool.h>
 #include "keyboard.h" // Подключаем заголовочный файл для драйвера клавиатуры
 #include "vga.h"      // Подключаем заголовочный файл для драйвера VGA
-#include "commands.h" // Подключаем заголовочный файл для команд
+#include "commands.h" // Подключаем заголовочный файл для обработчиков команд
+#include "vfs.h"      // Подключаем заголовочный файл для виртуальной файловой системы
 #include "limine.h"   // Подключаем заголовочный файл для Limine
 
 // Определение структуры памяти
@@ -23,6 +24,7 @@ void init_system() {
 
     // Инициализация драйвера VGA
     init_vga();
+    clear_screen(); // Очищаем экран
 }
 
 // Функция для обработки прерываний
@@ -45,6 +47,7 @@ void deallocate_memory(void* ptr) {
 void _start(struct MemoryRegion* mem_regions, size_t mem_region_count) {
     // Инициализация операционной системы
     init_system();
+    vfs_init(); // Инициализация виртуальной файловой системы
 
     // Вывод приветственного сообщения
     const char* welcome_message = "Welcome to MyOS!\nType 'help' for a list of commands.\n";
@@ -60,6 +63,3 @@ void _start(struct MemoryRegion* mem_regions, size_t mem_region_count) {
     }
 }
 
-// Прочие функции остаются без изменений
-
-// ...
