@@ -50,7 +50,7 @@ void _start(struct MemoryRegion* mem_regions, size_t mem_region_count) {
     vfs_init(); // Инициализация виртуальной файловой системы
 
     // Вывод приветственного сообщения
-    const char* welcome_message = "Welcome to MyOS!\nType 'help' for a list of commands.\n";
+    const char* welcome_message = "Welcome to NiviOS!\nType 'help' for a list of commands.\n";
     for (int i = 0; welcome_message[i] != '\0'; ++i) {
         putc_vga(welcome_message[i]);
     }
