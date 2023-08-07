@@ -91,6 +91,13 @@ override NASMFILES := $(shell find -L . -type f -name '*.asm')
 override OBJ := $(CFILES:.c=.c.o) $(ASFILES:.S=.S.o) $(NASMFILES:.asm=.asm.o)
 override HEADER_DEPS := $(CFILES:.c=.c.d) $(ASFILES:.S=.S.d)
 
+# Additional source files and headers for Drivers, commands, and VFS
+CFILES += $(wildcard Drivers/*.c)
+ASFILES += $(wildcard Drivers/*.S)
+NASMFILES += $(wildcard Drivers/*.asm)
+OBJ += $(CFILES:.c=.c.o) $(ASFILES:.S=.S.o) $(NASMFILES:.asm=.asm.o)
+HEADER_DEPS += $(CFILES:.c=.c.d) $(ASFILES:.S=.S.d)
+
 # Default target.
 .PHONY: all
 all: $(KERNEL)
