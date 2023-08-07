@@ -1,14 +1,10 @@
-// vga.h - Заголовочный файл для драйвера VGA
-
+// vga.h
 #ifndef VGA_H
 #define VGA_H
 
-#include <stdint.h>
+#define VGA_WIDTH 80
+#define VGA_HEIGHT 25
 
-// Функция для инициализации драйвера VGA
-void init_vga();
-
-// Функция для вывода пикселя на экран
-void putpixel_vga(int x, int y, uint32_t color);
+// ...
 
 #endif // VGA_H
