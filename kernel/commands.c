@@ -2,7 +2,7 @@
 
 #include "commands.h"
 #include "Drivers/vga.h" // Подключаем драйвер VGA
-#include "vfs.h" // Подключаем виртуальную файловую систему
+#include "Drivers/vfs.h" // Подключаем виртуальную файловую систему
 
 // Обработчик команды "help"
 void command_help() {
