@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include "keyboard.h" // Подключаем заголовочный файл для драйвера клавиатуры
 #include "vga.h"      // Подключаем заголовочный файл для драйвера VGA
+#include "commands.h" // Подключаем заголовочный файл для команд
 #include "limine.h"   // Подключаем заголовочный файл для Limine
 
 // Определение структуры памяти
@@ -45,14 +46,20 @@ void _start(struct MemoryRegion* mem_regions, size_t mem_region_count) {
     // Инициализация операционной системы
     init_system();
 
-    // Вывод строки "Привет, мир!" на экран VGA
-    const char* message = "Hello, VGA!\n";
-    for (int i = 0; message[i] != '\0'; ++i) {
-        putc_vga(message[i]);
+    // Вывод приветственного сообщения
+    const char* welcome_message = "Welcome to MyOS!\nType 'help' for a list of commands.\n";
+    for (int i = 0; welcome_message[i] != '\0'; ++i) {
+        putc_vga(welcome_message[i]);
     }
 
-    // Просто завершаем выполнение ядра
+    // Основной цикл операционной системы
     while (true) {
-        asm volatile ("hlt");
+        // Обработка задач и прерываний
+        keyboard_main(); // Обработка клавиатуры
+        // ...
     }
 }
+
+// Прочие функции остаются без изменений
+
+// ...
