@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "keyboard.h" // Подключаем заголовочный файл для драйвера клавиатуры
+#include "vga.h"      // Подключаем заголовочный файл для драйвера VGA
 #include "limine.h"   // Подключаем заголовочный файл для Limine
 
 // Определение структуры памяти
@@ -18,6 +19,9 @@ void init_system() {
 
     // Инициализация драйвера клавиатуры
     init_keyboard();
+
+    // Инициализация драйвера VGA
+    init_vga();
 }
 
 // Функция для обработки прерываний
@@ -41,10 +45,10 @@ void _start(struct MemoryRegion* mem_regions, size_t mem_region_count) {
     // Инициализация операционной системы
     init_system();
 
-    // Вывод строки "Привет, мир!"
-    const char* message = "Hello World!\n";
+    // Вывод строки "Привет, мир!" на экран VGA
+    const char* message = "Hello, VGA!\n";
     for (int i = 0; message[i] != '\0'; ++i) {
-        putc(message[i]);
+        putc_vga(message[i]);
     }
 
     // Просто завершаем выполнение ядра
