@@ -1,7 +1,7 @@
 // commands.c - Файл с обработчиками команд
 
 #include "commands.h"
-#include "vga.h" // Подключаем драйвер VGA
+#include "Drivers/vga.h" // Подключаем драйвер VGA
 #include "vfs.h" // Подключаем виртуальную файловую систему
 
 // Обработчик команды "help"
