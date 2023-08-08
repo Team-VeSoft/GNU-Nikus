@@ -1,9 +1,12 @@
-// commands.h - Заголовочный файл для команд
-
 #ifndef COMMANDS_H
 #define COMMANDS_H
 
-// Функция для обработки команд
+void command_help();
+void command_mkdir(const char* name);
+void command_rm(const char* name);
+void command_ls();
+void command_cfile(const char* name);
+void command_efile(const char* name);
 void handle_command(const char* command);
 
-#endif // COMMANDS_H
+#endif
