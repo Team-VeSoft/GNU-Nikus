@@ -103,7 +103,7 @@ HEADER_DEPS += $(CFILES:.c=.c.d) $(ASFILES:.S=.S.d)
 all: $(KERNEL)
 
 limine.h:
-	curl -Lo $@ https://github.com/limine-bootloader/limine/raw/trunk/limine.h
+	curl -Lo $@ https://raw.githubusercontent.com/Team-VeSoft/LimineReservedRepo/main/limine.h
 
 # Link rules for the final kernel executable.
 $(KERNEL): $(OBJ)
