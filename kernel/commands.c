@@ -9,7 +9,6 @@ void command_help() {
     // Выводим список доступных команд
     const char* help_message = "Available commands:\n"
                                "help - Display this help message\n"
-                               "hello - Print \"Hello, VGA!\"\n"
                                "mkdir <name> - Create a directory\n"
                                "rm <name> - Remove a file or directory\n"
                                "ls - List files\n"
@@ -81,6 +80,9 @@ void command_efile(const char* name) {
 void handle_command(const char* command) {
     // Разделение строки команды на аргументы
     // ...
+
+    int args_count = 0; // Объявление и инициализация переменной args_count
+    const char* args[] = {""}; // Объявление массива args
 
     // Используем оператор switch для обработки команд
     switch (args_count) {
