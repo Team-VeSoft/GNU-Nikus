@@ -1,12 +1,11 @@
-// keyboard.h - Заголовочный файл для драйвера клавиатуры
-
+// keyboard.h
 #ifndef KEYBOARD_H
 #define KEYBOARD_H
 
+#include <stdint.h>
+
 // Определение функций
 void init_keyboard();
-char read_key();
 void keyboard_main();
-char key_to_ascii(char keycode);
 
 #endif // KEYBOARD_H
