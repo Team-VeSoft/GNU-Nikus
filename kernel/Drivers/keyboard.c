@@ -1,4 +1,5 @@
 // keyboard.c
+#include <stdint.h>
 #include <stdbool.h>
 #include "keyboard.h"
 #include "vga.h" // Подключаем драйвер VGA
